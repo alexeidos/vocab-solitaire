@@ -141,7 +141,7 @@ export default function GameClient({ user, initialProgress }: GameClientProps) {
           : movesCount
         
         const existingWords = existing.words_learned || []
-        const allWords = [...new Set([...existingWords, ...learned])]
+        const allWords = Array.from(new Set([...existingWords, ...learned]))
 
         await supabase
           .from('user_progress')
