@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 253, 246, 227;
+  --background-start-rgb: 26, 26, 46;
+  --background-mid-rgb: 22, 33, 62;
+  --background-end-rgb: 15, 52, 96;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    135deg,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-mid-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Card drag styles */
+.card-dragging {
+  transform: scale(1.05) rotate(3deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+}
+
+/* Foundation pulse animation */
+@keyframes foundation-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 215, 0, 0);
+  }
+}
+
+.foundation-pulse {
+  animation: foundation-pulse 1.5s ease infinite;
+}
+
+/* Celebration animation */
+@keyframes celebrate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.celebrate {
+  animation: celebrate 0.5s ease infinite;
+}
